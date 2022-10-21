@@ -5,8 +5,7 @@ import Gallery from './components/Gallery';
 import ContactForm from './components/Contact';
 
 function App() {
-  const [contactSelected, setContactSelected] = useState(false);
-  const [categories] = useState([
+  const [categories] = useState([ 
     {
       name: 'commercial',
       description: 'Photos of grocery stores, food trucks, and other commercial projects',
@@ -17,6 +16,8 @@ function App() {
   ]);
 
   const [currentCategory, setCurrentCategory] = useState(categories[0]);
+
+  const [contactSelected, setContactSelected] = useState(false);
 
   return (
     <div>
@@ -30,13 +31,12 @@ function App() {
       <main>
         {!contactSelected ? (
           <>
-            <Gallery currentCategory={currentCategory} />
-            <About />
+            <Gallery currentCategory={currentCategory}></Gallery>
+            <About></About>
           </>
         ) : (
-          <ContactForm />
-        )
-        }
+            <ContactForm></ContactForm>
+          )}
       </main>
     </div>
   );
